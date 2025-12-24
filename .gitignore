@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# guestbook data
+/data/guestbook.json
+
+/app/generated/prisma
