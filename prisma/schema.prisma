@@ -11,13 +11,5 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-}
-
-model GuestbookEntry {
-  id        String   @id @default(cuid())
-  name      String   @db.VarChar(100)
-  message   String   @db.Text
-  createdAt DateTime @default(now())
-
-  @@map("guestbook_entries")
+  url      = env("DATABASE_URL")
 }
