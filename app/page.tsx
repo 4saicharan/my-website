@@ -14,7 +14,7 @@ export default function Home() {
         {/* The Big Title */}
         <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tight">
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">
-            Sai's World
+            TorqueTech
           </span>
         </h1>
 
@@ -42,10 +42,10 @@ export default function Home() {
             </svg>
           </a>
           <Link
-            href="/guestbook"
+            href="https://saiasapu.com/news"
             className="group relative inline-flex items-center justify-center px-8 py-4 font-bold text-white transition-all duration-200 bg-gradient-to-r from-purple-600 to-pink-600 font-lg rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-600 hover:from-purple-700 hover:to-pink-700 hover:scale-105"
           >
-            Sign Guestbook
+            News
             <svg 
               className="w-5 h-5 ml-2 -mr-1 transition-transform group-hover:translate-x-1" 
               fill="none" 
