@@ -15,3 +15,13 @@ model GuestbookEntry {
   message   String
   createdAt DateTime @default(now())
 }
+
+model NewsArticle {
+  id          String   @id @default(uuid())
+  title       String
+  description String?
+  url         String
+  topic       String?
+  publishedAt DateTime
+  savedAt     DateTime @default(now())
+}
