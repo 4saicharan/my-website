@@ -2,6 +2,7 @@ export const dynamic = "force-dynamic"; // 1. Fix the Build Error
 
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
+import NewsArticleCard from "./NewsArticleCard";
 
 // 2. The Server Action (The Reporter)
 async function fetchLatestNews() {
@@ -49,6 +50,8 @@ export default async function NewsPage() {
     take: 50, // Show last 50 saved items
   });
 
+  type Article = typeof articles[0];
+
   return (
     <div className="min-h-screen bg-slate-950 text-white p-8 font-sans">
       <div className="max-w-4xl mx-auto">
@@ -68,25 +71,16 @@ export default async function NewsPage() {
         </div>
 
         <div className="space-y-6">
-          {articles.map((article) => (
-            <div key={article.id} className="bg-slate-900 border border-slate-800 p-6 rounded-2xl hover:border-slate-700 transition">
-              <div className="flex justify-between text-xs font-bold uppercase tracking-wider mb-2">
-                <span className={article.topic === "Immigration" ? "text-orange-400" : "text-cyan-400"}>
-                  {article.topic || "News"}
-                </span>
-                <span className="text-slate-500">
-                  {article.publishedAt.toLocaleDateString()} 
-                </span>
-              </div>
-              
-              <a href={article.url} target="_blank" className="text-xl font-semibold hover:text-blue-400 transition block mb-2">
-                {article.title}
-              </a>
-              
-              <p className="text-slate-400 text-sm leading-relaxed">
-                {article.description}
-              </p>
-            </div>
+          {articles.map((article: Article) => (
+            <NewsArticleCard
+              key={article.id}
+              id={article.id}
+              title={article.title}
+              description={article.description}
+              url={article.url}
+              topic={article.topic}
+              publishedAt={article.publishedAt}
+            />
           ))}
 
           {articles.length === 0 && (
