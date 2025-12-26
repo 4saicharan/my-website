@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SpinningMeshCanvas from "./components/SpinningMeshCanvas";
 
 export default function Home() {
   return (
@@ -23,6 +24,11 @@ export default function Home() {
           <p className="text-xl md:text-2xl text-slate-300 mb-10 leading-relaxed">
             Turning gears into code. My work is built on engineering discipline and fueled by the latest Artificial Intelligence news.
           </p>
+        </div>
+
+        {/* 3D Interactive Mesh */}
+        <div className="mb-10 w-full max-w-md mx-auto">
+          <SpinningMeshCanvas />
         </div>
 
         {/* Scrolling Skills Bar */}
