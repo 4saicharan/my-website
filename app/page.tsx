@@ -1,5 +1,7 @@
 import Link from "next/link";
 import SpinningMeshCanvas from "./components/SpinningMeshCanvas";
+import WeatherInfo from "./components/WeatherInfo";
+import WorldClock from "./components/WorldClock";
 
 export default function Home() {
   return (
@@ -26,9 +28,17 @@ export default function Home() {
           </p>
         </div>
 
-        {/* 3D Interactive Mesh */}
-        <div className="mb-10 w-full max-w-md mx-auto">
-          <SpinningMeshCanvas />
+        {/* Weather and 3D Mesh Section */}
+        <div className="mb-10 w-full max-w-4xl mx-auto flex flex-col md:flex-row gap-6 items-center justify-center px-4">
+          <WeatherInfo />
+          <div className="flex-1 max-w-md">
+            <SpinningMeshCanvas />
+          </div>
+        </div>
+
+        {/* World Clock Section */}
+        <div className="mb-10 w-full max-w-6xl mx-auto px-4">
+          <WorldClock />
         </div>
 
         {/* Scrolling Skills Bar */}
