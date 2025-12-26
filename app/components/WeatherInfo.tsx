@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 interface WeatherData {
   temp: number;
@@ -90,8 +91,8 @@ export default function WeatherInfo() {
     return "🌤️"; // Default
   };
 
-  return (
-    <div className="bg-slate-900 border border-slate-700 rounded-xl p-6 w-[280px] h-[240px] flex flex-col">
+  const CardContent = () => (
+    <>
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-semibold text-slate-300">Weather</h3>
         <span className="text-4xl">{getWeatherEmoji(weather.icon)}</span>
@@ -117,7 +118,16 @@ export default function WeatherInfo() {
           </div>
         </div>
       </div>
-    </div>
+    </>
+  );
+
+  return (
+    <Link
+      href="/weather"
+      className="bg-slate-900 border border-slate-700 rounded-xl p-6 w-[280px] h-[240px] flex flex-col hover:border-blue-500 transition-all hover:shadow-lg hover:shadow-blue-500/20 group"
+    >
+      <CardContent />
+    </Link>
   );
 }
 
