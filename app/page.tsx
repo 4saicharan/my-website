@@ -20,8 +20,7 @@ export default function Home() {
 
         {/* The Bio */}
         <p className="text-xl md:text-2xl text-slate-300 mb-10 leading-relaxed">
-          Hi, I'm Sai! 👋 <br />
-          I am a student and a creator. Welcome to my digital space where I share my projects and ideas.
+          Turning gears into code. My work is built on engineering discipline and fueled by the latest Artificial Intelligence news.
         </p>
 
         {/* Action Buttons */}
