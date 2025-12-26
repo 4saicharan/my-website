@@ -65,7 +65,7 @@ export default function WeatherInfo() {
 
   if (loading) {
     return (
-      <div className="bg-slate-900 border border-slate-700 rounded-xl p-6 min-w-[280px]">
+      <div className="bg-slate-900 border border-slate-700 rounded-xl p-6 w-[280px] h-[240px] flex flex-col">
         <div className="text-slate-400">Loading weather...</div>
       </div>
     );
@@ -73,7 +73,7 @@ export default function WeatherInfo() {
 
   if (error || !weather) {
     return (
-      <div className="bg-slate-900 border border-slate-700 rounded-xl p-6 min-w-[280px]">
+      <div className="bg-slate-900 border border-slate-700 rounded-xl p-6 w-[280px] h-[240px] flex flex-col">
         <div className="text-red-400">{error || "Weather unavailable"}</div>
       </div>
     );
@@ -91,13 +91,13 @@ export default function WeatherInfo() {
   };
 
   return (
-    <div className="bg-slate-900 border border-slate-700 rounded-xl p-6 min-w-[280px]">
+    <div className="bg-slate-900 border border-slate-700 rounded-xl p-6 w-[280px] h-[240px] flex flex-col">
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-semibold text-slate-300">Weather</h3>
         <span className="text-4xl">{getWeatherEmoji(weather.icon)}</span>
       </div>
       
-      <div className="space-y-2">
+      <div className="space-y-2 flex-1 flex flex-col">
         <div className="flex items-baseline gap-2">
           <span className="text-4xl font-bold text-white">{weather.temp}°</span>
           <span className="text-slate-400">F</span>
@@ -106,7 +106,7 @@ export default function WeatherInfo() {
         <div className="text-slate-300 capitalize">{weather.description}</div>
         <div className="text-slate-400 text-sm">{weather.city}</div>
         
-        <div className="flex gap-4 mt-4 pt-4 border-t border-slate-700 text-sm">
+        <div className="flex gap-4 mt-auto pt-4 border-t border-slate-700 text-sm">
           <div>
             <span className="text-slate-400">Humidity: </span>
             <span className="text-slate-300">{weather.humidity}%</span>

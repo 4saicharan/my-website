@@ -6,7 +6,7 @@ export default function WorldClockCard() {
   return (
     <Link
       href="/world-clock"
-      className="bg-slate-900 border border-slate-700 rounded-xl p-6 min-w-[280px] hover:border-green-500 transition-all hover:shadow-lg hover:shadow-green-500/20 group"
+      className="bg-slate-900 border border-slate-700 rounded-xl p-6 w-[280px] h-[240px] flex flex-col hover:border-green-500 transition-all hover:shadow-lg hover:shadow-green-500/20 group"
     >
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-semibold text-slate-300">World Clock</h3>
@@ -20,7 +20,7 @@ export default function WorldClockCard() {
         </svg>
       </div>
       
-      <div className="space-y-2">
+      <div className="space-y-2 flex-1 flex flex-col">
         <div className="text-2xl font-bold text-white mb-2">
           Global Time
         </div>
@@ -29,7 +29,7 @@ export default function WorldClockCard() {
           View times across the world
         </div>
         
-        <div className="flex gap-2 mt-4 pt-4 border-t border-slate-700 text-xs">
+        <div className="flex gap-2 mt-auto pt-4 border-t border-slate-700 text-xs">
           <span className="text-slate-400">50+ cities</span>
           <span className="text-green-400">→</span>
         </div>
