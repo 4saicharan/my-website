@@ -92,3 +92,4 @@ npm run android
 - Text-to-speech uses Expo Speech API
 - All screens follow the dark theme design
 
+
