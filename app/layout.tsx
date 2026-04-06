@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import AiChatbot from "./components/AiChatbot";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Sai's World",
-  description: "My personal portfolio website",
+  title: "Sai Asapu — Digital Twin",
+  description:
+    "Talk to Sai Asapu's Digital Twin to explore work, experience, and tech stack.",
 };
 
 export default function RootLayout({
@@ -17,9 +17,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} min-h-screen bg-[#020617] antialiased`}>
         {children}
-        <AiChatbot />
       </body>
     </html>
   );

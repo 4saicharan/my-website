@@ -77,3 +77,49 @@ body {
 .animate-scroll {
   animation: scroll 30s linear infinite;
 }
+
+/* Digital Twin homepage — slow mesh gradient */
+@keyframes mesh-shift {
+  0%,
+  100% {
+    background-position: 0% 40%, 100% 60%, 50% 50%;
+  }
+  50% {
+    background-position: 100% 50%, 0% 50%, 60% 40%;
+  }
+}
+
+.digital-twin-mesh {
+  background-color: #020617;
+  background-image:
+    radial-gradient(
+      ellipse 120% 80% at 15% 20%,
+      rgba(37, 99, 235, 0.18) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 100% 70% at 85% 75%,
+      rgba(109, 40, 217, 0.14) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse 90% 60% at 50% 100%,
+      rgba(30, 64, 175, 0.12) 0%,
+      transparent 45%
+    ),
+    linear-gradient(180deg, #020617 0%, #0a0f1f 50%, #020617 100%);
+  background-size: 200% 200%, 200% 200%, 150% 150%, 100% 100%;
+  background-position: 0% 40%, 100% 60%, 50% 50%, 0 0;
+  animation: mesh-shift 32s ease-in-out infinite;
+}
+
+.glass-twin-card {
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 0 0 1px rgba(99, 102, 241, 0.08),
+    0 25px 80px -20px rgba(0, 0, 0, 0.65),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
