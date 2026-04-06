@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import NeuralParticlesBackground from "./NeuralParticlesBackground";
 
 const CHATBOT_ORIGIN = "https://saiasapu-sai-asapu-ai.hf.space";
 const CHATBOT_URL = `${CHATBOT_ORIGIN}/?__theme=dark`;
@@ -76,6 +77,7 @@ export default function DigitalTwinHome() {
 
   return (
     <div className="digital-twin-mesh relative min-h-screen overflow-hidden text-white">
+      <NeuralParticlesBackground />
       <nav className="relative z-20 flex items-center justify-between px-5 py-5 md:px-10">
         <Link
           href="/"
