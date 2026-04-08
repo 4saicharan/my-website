@@ -6,12 +6,10 @@ import NeuralParticlesBackground from "./NeuralParticlesBackground";
 
 const CHATBOT_ORIGIN = "https://saiasapu-sai-asapu-ai.hf.space";
 
-/**
- * Quick Chat booking — override with `NEXT_PUBLIC_CALENDLY_URL` in `.env.local` if needed.
- */
+/** Override with `NEXT_PUBLIC_CALENDLY_URL` in `.env.local` if needed. */
 const CALENDLY_BOOK_URL =
   process.env.NEXT_PUBLIC_CALENDLY_URL ??
-  "https://calendly.com/scharan627/quick-chat-with-sai";
+  "https://calendly.com/scharan627/quick-chat-with-sai-1";
 
 const RESUME_PATH = "/Sai_Asapu_Resume.pdf";
 
@@ -89,43 +87,18 @@ export default function DigitalTwinHome() {
           </div>
         </div>
 
-        <div className="mt-8 flex flex-col items-stretch justify-center gap-4 sm:flex-row sm:items-center">
-          <a
-            href={CALENDLY_BOOK_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex min-h-[52px] flex-1 items-center justify-center gap-2.5 rounded-2xl border border-emerald-400/35 bg-gradient-to-b from-emerald-500/[0.18] to-emerald-700/[0.08] px-8 py-3.5 text-[15px] font-semibold tracking-wide text-emerald-50 shadow-[0_0_0_1px_rgba(52,211,153,0.12),0_4px_24px_-4px_rgba(16,185,129,0.35),0_12px_40px_-12px_rgba(0,0,0,0.45)] backdrop-blur-md transition duration-200 hover:border-emerald-300/50 hover:from-emerald-400/25 hover:to-emerald-800/15 hover:text-white hover:shadow-[0_0_40px_-4px_rgba(52,211,153,0.45),0_8px_32px_-8px_rgba(16,185,129,0.3)] focus:outline-none focus:ring-2 focus:ring-emerald-400/45 focus:ring-offset-2 focus:ring-offset-slate-950 active:scale-[0.99] sm:min-h-[52px] sm:flex-1"
-          >
-            <span className="text-lg" aria-hidden>
-              📅
-            </span>
-            Book Interview
-            <svg
-              className="h-4 w-4 text-emerald-200/90 transition group-hover:translate-x-0.5 group-hover:text-white"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-              />
-            </svg>
-          </a>
+        <div className="mt-10 mx-auto flex w-full max-w-3xl flex-col items-stretch justify-center gap-4 px-1 sm:flex-row sm:gap-5">
           <a
             href={RESUME_PATH}
             download="Sai_Asapu_Resume.pdf"
-            className="group inline-flex min-h-[52px] flex-1 items-center justify-center gap-2.5 rounded-2xl border border-sky-400/35 bg-gradient-to-b from-sky-500/[0.2] to-indigo-950/[0.15] px-8 py-3.5 text-[15px] font-semibold tracking-wide text-sky-50 shadow-[0_0_0_1px_rgba(56,189,248,0.18),0_4px_28px_-4px_rgba(59,130,246,0.38),0_12px_40px_-12px_rgba(0,0,0,0.5)] backdrop-blur-md transition duration-200 hover:border-sky-300/50 hover:from-sky-400/28 hover:to-indigo-950/30 hover:text-white hover:shadow-[0_0_44px_-4px_rgba(56,189,248,0.42),0_8px_32px_-8px_rgba(37,99,235,0.22)] focus:outline-none focus:ring-2 focus:ring-sky-400/50 focus:ring-offset-2 focus:ring-offset-slate-950 active:scale-[0.99] sm:min-h-[52px] sm:flex-1"
+            className="group inline-flex min-h-[58px] flex-1 items-center justify-center gap-3 rounded-2xl border border-white/20 bg-slate-950/45 px-6 py-4 text-base font-semibold tracking-wide text-slate-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_0_0_1px_rgba(255,255,255,0.06),0_8px_40px_-12px_rgba(0,0,0,0.5),0_0_28px_-6px_rgba(255,255,255,0.12)] backdrop-blur-xl transition duration-200 hover:border-white/35 hover:bg-slate-950/55 hover:text-white hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_0_0_1px_rgba(255,255,255,0.1),0_0_40px_-4px_rgba(255,255,255,0.18),0_12px_40px_-12px_rgba(0,0,0,0.55)] focus:outline-none focus:ring-2 focus:ring-white/25 focus:ring-offset-2 focus:ring-offset-slate-950 active:scale-[0.99]"
           >
-            <span className="text-lg" aria-hidden>
+            <span className="text-xl" aria-hidden>
               📄
             </span>
             Download Resume
             <svg
-              className="h-4 w-4 text-sky-200/90 transition group-hover:translate-y-0.5 group-hover:text-white"
+              className="h-5 w-5 text-slate-300 transition group-hover:translate-y-0.5 group-hover:text-white"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -136,6 +109,31 @@ export default function DigitalTwinHome() {
                 strokeLinejoin="round"
                 strokeWidth={2}
                 d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+              />
+            </svg>
+          </a>
+          <a
+            href={CALENDLY_BOOK_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex min-h-[58px] flex-1 items-center justify-center gap-3 rounded-2xl border border-emerald-400/30 bg-slate-950/45 px-6 py-4 text-base font-semibold tracking-wide text-slate-100 shadow-[inset_0_1px_0_rgba(16,185,129,0.08),0_0_0_1px_rgba(16,185,129,0.12),0_8px_40px_-12px_rgba(0,0,0,0.5),0_0_32px_-8px_rgba(16,185,129,0.28)] backdrop-blur-xl transition duration-200 hover:border-emerald-400/45 hover:bg-slate-950/55 hover:text-white hover:shadow-[inset_0_1px_0_rgba(52,211,153,0.12),0_0_0_1px_rgba(52,211,153,0.2),0_0_44px_-4px_rgba(16,185,129,0.38),0_12px_40px_-12px_rgba(0,0,0,0.55)] focus:outline-none focus:ring-2 focus:ring-emerald-400/40 focus:ring-offset-2 focus:ring-offset-slate-950 active:scale-[0.99]"
+          >
+            <span className="text-xl" aria-hidden>
+              📅
+            </span>
+            Book Interview
+            <svg
+              className="h-5 w-5 text-emerald-300/90 transition group-hover:translate-x-0.5 group-hover:text-emerald-100"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
               />
             </svg>
           </a>
