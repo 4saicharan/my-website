@@ -13,6 +13,9 @@ const CALENDLY_BOOK_URL =
 
 const RESUME_PATH = "/Sai_Asapu_Resume.pdf";
 
+const MAILTO_CONTACT =
+  "mailto:saiasapu23@gmail.com?subject=Let's%20Connect!%20-%20Via%20Digital%20Twin";
+
 const HEADLINE =
   "I am Sai Asapu. Talk to my Digital Twin to explore my work.";
 
@@ -46,7 +49,7 @@ export default function DigitalTwinHome() {
           </span>
         </Link>
         <a
-          href="mailto:contact@saiasapu.com"
+          href={MAILTO_CONTACT}
           className="rounded-full border border-white/15 bg-white/5 px-5 py-2.5 text-sm font-medium text-slate-200 backdrop-blur-md transition hover:border-indigo-400/35 hover:bg-white/10 hover:text-white"
         >
           Contact
