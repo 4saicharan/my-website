@@ -11,7 +11,9 @@ const CALENDLY_BOOK_URL =
   process.env.NEXT_PUBLIC_CALENDLY_URL ??
   "https://calendly.com/scharan627/quick-chat-with-sai-1";
 
-const RESUME_PATH = "/Sai_Asapu_Resume.pdf";
+/** Public URL — must match `public/Sai_Asapu_Resume.pdf` */
+const RESUME_HREF = "/Sai_Asapu_Resume.pdf";
+const RESUME_FILENAME = "Sai_Asapu_Resume.pdf";
 
 const MAILTO_CONTACT =
   "mailto:saiasapu23@gmail.com?subject=Let's%20Connect!%20-%20Via%20Digital%20Twin";
@@ -92,8 +94,8 @@ export default function DigitalTwinHome() {
 
         <div className="mt-10 mx-auto flex w-full max-w-3xl flex-col items-stretch justify-center gap-4 px-1 sm:flex-row sm:gap-5">
           <a
-            href={RESUME_PATH}
-            download={RESUME_PATH}
+            href={RESUME_HREF}
+            download={RESUME_FILENAME}
             className="group inline-flex min-h-[58px] flex-1 items-center justify-center gap-3 rounded-2xl border border-white/20 bg-slate-950/45 px-6 py-4 text-base font-semibold tracking-wide text-slate-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_0_0_1px_rgba(255,255,255,0.06),0_8px_40px_-12px_rgba(0,0,0,0.5),0_0_28px_-6px_rgba(255,255,255,0.12)] backdrop-blur-xl transition duration-200 hover:border-white/35 hover:bg-slate-950/55 hover:text-white hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_0_0_1px_rgba(255,255,255,0.1),0_0_40px_-4px_rgba(255,255,255,0.18),0_12px_40px_-12px_rgba(0,0,0,0.55)] focus:outline-none focus:ring-2 focus:ring-white/25 focus:ring-offset-2 focus:ring-offset-slate-950 active:scale-[0.99]"
           >
             <span className="text-xl" aria-hidden>
