@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import NeuralParticlesBackground from "./NeuralParticlesBackground";
+import SkillRadarModal from "./SkillRadarModal";
 
 const CHATBOT_ORIGIN = "https://saiasapu-sai-asapu-ai.hf.space";
 
@@ -63,6 +64,7 @@ export default function DigitalTwinHome() {
   const [iframeSrc, setIframeSrc] = useState(
     () => `${CHATBOT_ORIGIN}/`
   );
+  const [skillRadarOpen, setSkillRadarOpen] = useState(false);
 
   useEffect(() => {
     let i = 0;
@@ -137,12 +139,12 @@ export default function DigitalTwinHome() {
           </div>
         </div>
 
-        <div className="mt-6 flex justify-center px-1">
+        <div className="mt-6 flex flex-col items-stretch justify-center gap-3 px-1 sm:flex-row sm:flex-wrap sm:items-center">
           <a
             href={CALENDLY_BOOK_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex min-h-[48px] w-full max-w-md items-center justify-center gap-2.5 rounded-2xl border border-emerald-400/35 bg-gradient-to-b from-emerald-500/[0.18] to-emerald-700/[0.08] px-8 py-3.5 text-[15px] font-semibold tracking-wide text-emerald-50 shadow-[0_0_0_1px_rgba(52,211,153,0.12),0_4px_24px_-4px_rgba(16,185,129,0.35),0_12px_40px_-12px_rgba(0,0,0,0.45)] backdrop-blur-md transition duration-200 hover:border-emerald-300/50 hover:from-emerald-400/25 hover:to-emerald-800/15 hover:text-white hover:shadow-[0_0_40px_-4px_rgba(52,211,153,0.45),0_8px_32px_-8px_rgba(16,185,129,0.3)] focus:outline-none focus:ring-2 focus:ring-emerald-400/45 focus:ring-offset-2 focus:ring-offset-slate-950 active:scale-[0.99] sm:w-auto"
+            className="group inline-flex min-h-[48px] w-full max-w-md flex-1 items-center justify-center gap-2.5 rounded-2xl border border-emerald-400/35 bg-gradient-to-b from-emerald-500/[0.18] to-emerald-700/[0.08] px-8 py-3.5 text-[15px] font-semibold tracking-wide text-emerald-50 shadow-[0_0_0_1px_rgba(52,211,153,0.12),0_4px_24px_-4px_rgba(16,185,129,0.35),0_12px_40px_-12px_rgba(0,0,0,0.45)] backdrop-blur-md transition duration-200 hover:border-emerald-300/50 hover:from-emerald-400/25 hover:to-emerald-800/15 hover:text-white hover:shadow-[0_0_40px_-4px_rgba(52,211,153,0.45),0_8px_32px_-8px_rgba(16,185,129,0.3)] focus:outline-none focus:ring-2 focus:ring-emerald-400/45 focus:ring-offset-2 focus:ring-offset-slate-950 active:scale-[0.99] sm:min-w-[220px] sm:flex-initial"
           >
             <span className="text-lg" aria-hidden>
               📅
@@ -163,6 +165,30 @@ export default function DigitalTwinHome() {
               />
             </svg>
           </a>
+          <button
+            type="button"
+            onClick={() => setSkillRadarOpen(true)}
+            className="group inline-flex min-h-[48px] w-full max-w-md flex-1 items-center justify-center gap-2.5 rounded-2xl border border-violet-400/35 bg-gradient-to-b from-indigo-600/[0.22] to-violet-900/[0.12] px-8 py-3.5 text-[15px] font-semibold tracking-wide text-indigo-50 shadow-[0_0_0_1px_rgba(139,92,246,0.2),0_4px_28px_-4px_rgba(99,102,241,0.4),0_12px_40px_-12px_rgba(0,0,0,0.5)] backdrop-blur-md transition duration-200 hover:border-violet-300/45 hover:from-indigo-500/30 hover:to-violet-950/25 hover:text-white hover:shadow-[0_0_44px_-4px_rgba(139,92,246,0.45),0_8px_32px_-8px_rgba(99,102,241,0.25)] focus:outline-none focus:ring-2 focus:ring-violet-400/50 focus:ring-offset-2 focus:ring-offset-slate-950 active:scale-[0.99] sm:min-w-[220px] sm:flex-initial"
+          >
+            <span className="text-lg" aria-hidden>
+              📡
+            </span>
+            Skill Radar
+            <svg
+              className="h-4 w-4 text-violet-200/90 transition group-hover:translate-x-0.5 group-hover:text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+              />
+            </svg>
+          </button>
         </div>
 
         <div className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4">
@@ -195,6 +221,11 @@ export default function DigitalTwinHome() {
       <footer className="relative z-10 px-4 pb-8 text-center text-xs text-slate-600">
         © {new Date().getFullYear()} Sai Asapu
       </footer>
+
+      <SkillRadarModal
+        open={skillRadarOpen}
+        onClose={() => setSkillRadarOpen(false)}
+      />
     </div>
   );
 }
