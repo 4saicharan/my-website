@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import NeuralParticlesBackground from "./NeuralParticlesBackground";
+import CareerSuiteIframe from "./CareerSuiteIframe";
+import { trackBookInterview, trackDownloadResume } from "@/lib/analytics";
 
 const CHATBOT_ORIGIN = "https://saiasapu-sai-asapu-ai.hf.space";
 
@@ -72,12 +74,9 @@ export default function DigitalTwinHome() {
             <div className="h-2 w-2 rounded-full bg-emerald-400/90 shadow-[0_0_12px_rgba(52,211,153,0.7)]" />
           </div>
           <div className="relative min-h-0 flex-1 bg-black/20">
-            <iframe
+            <CareerSuiteIframe
               src={`${CHATBOT_ORIGIN}/`}
               title="Sai Asapu Digital Twin"
-              className="absolute inset-0 h-full w-full border-0"
-              allow="microphone; camera"
-              loading="lazy"
             />
           </div>
         </div>
@@ -86,6 +85,7 @@ export default function DigitalTwinHome() {
           <a
             href={RESUME_HREF}
             download={RESUME_FILENAME}
+            onClick={() => trackDownloadResume()}
             className="group inline-flex min-h-[58px] flex-1 items-center justify-center gap-3 rounded-2xl border border-white/20 bg-slate-950/45 px-6 py-4 text-base font-semibold tracking-wide text-slate-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_0_0_1px_rgba(255,255,255,0.06),0_8px_40px_-12px_rgba(0,0,0,0.5),0_0_28px_-6px_rgba(255,255,255,0.12)] backdrop-blur-xl transition duration-200 hover:border-white/35 hover:bg-slate-950/55 hover:text-white hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_0_0_1px_rgba(255,255,255,0.1),0_0_40px_-4px_rgba(255,255,255,0.18),0_12px_40px_-12px_rgba(0,0,0,0.55)] focus:outline-none focus:ring-2 focus:ring-white/25 focus:ring-offset-2 focus:ring-offset-slate-950 active:scale-[0.99]"
           >
             <span className="text-xl" aria-hidden>
@@ -111,6 +111,7 @@ export default function DigitalTwinHome() {
             href={CALENDLY_BOOK_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackBookInterview()}
             className="group inline-flex min-h-[58px] flex-1 items-center justify-center gap-3 rounded-2xl border border-emerald-400/30 bg-slate-950/45 px-6 py-4 text-base font-semibold tracking-wide text-slate-100 shadow-[inset_0_1px_0_rgba(16,185,129,0.08),0_0_0_1px_rgba(16,185,129,0.12),0_8px_40px_-12px_rgba(0,0,0,0.5),0_0_32px_-8px_rgba(16,185,129,0.28)] backdrop-blur-xl transition duration-200 hover:border-emerald-400/45 hover:bg-slate-950/55 hover:text-white hover:shadow-[inset_0_1px_0_rgba(52,211,153,0.12),0_0_0_1px_rgba(52,211,153,0.2),0_0_44px_-4px_rgba(16,185,129,0.38),0_12px_40px_-12px_rgba(0,0,0,0.55)] focus:outline-none focus:ring-2 focus:ring-emerald-400/40 focus:ring-offset-2 focus:ring-offset-slate-950 active:scale-[0.99]"
           >
             <span className="text-xl" aria-hidden>
