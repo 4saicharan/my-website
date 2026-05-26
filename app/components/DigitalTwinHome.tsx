@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Link from "next/link";
 import NeuralParticlesBackground from "./NeuralParticlesBackground";
 
@@ -18,25 +17,7 @@ const RESUME_FILENAME = "Sai_Asapu_Resume.pdf";
 const MAILTO_CONTACT =
   "mailto:saiasapu23@gmail.com?subject=Let's%20Connect!%20-%20Via%20Digital%20Twin";
 
-const HEADLINE =
-  "I am Sai Asapu. Talk to my Digital Twin to explore my work.";
-
 export default function DigitalTwinHome() {
-  const [typed, setTyped] = useState("");
-  const [typingDone, setTypingDone] = useState(false);
-  useEffect(() => {
-    let i = 0;
-    const id = window.setInterval(() => {
-      i += 1;
-      setTyped(HEADLINE.slice(0, i));
-      if (i >= HEADLINE.length) {
-        window.clearInterval(id);
-        setTypingDone(true);
-      }
-    }, 42);
-    return () => window.clearInterval(id);
-  }, []);
-
   return (
     <div className="digital-twin-mesh relative min-h-screen overflow-hidden text-white">
       <NeuralParticlesBackground />
@@ -46,7 +27,7 @@ export default function DigitalTwinHome() {
           className="group flex items-center gap-2 font-semibold tracking-[0.2em] text-slate-200 transition hover:text-white"
           aria-label="Home"
         >
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/15 bg-white/5 text-sm font-bold text-white shadow-[0_0_24px_rgba(99,102,241,0.25)] backdrop-blur-md transition group-hover:border-indigo-400/40 group-hover:shadow-[0_0_32px_rgba(99,102,241,0.35)]">
+          <span className="sa-logo-glow flex h-10 w-10 items-center justify-center rounded-xl border border-indigo-400/35 bg-white/5 text-sm font-bold text-white backdrop-blur-md transition group-hover:border-violet-400/50">
             SA
           </span>
         </Link>
@@ -59,25 +40,25 @@ export default function DigitalTwinHome() {
       </nav>
 
       <main className="relative z-10 mx-auto flex max-w-4xl flex-col px-4 pb-16 pt-6 md:px-8 md:pt-10">
-        <h1
-          className="mb-8 min-h-[4.5rem] text-center text-xl font-light leading-relaxed text-slate-200 md:min-h-[5rem] md:text-2xl md:leading-relaxed"
-          aria-live="polite"
-        >
-          <span className="bg-gradient-to-r from-slate-100 via-indigo-100 to-violet-200 bg-clip-text text-transparent">
-            {typed}
-          </span>
-          {!typingDone && (
-            <span className="ml-0.5 inline-block h-6 w-0.5 animate-pulse bg-indigo-400/80 align-middle md:h-7" />
-          )}
-        </h1>
+        <header className="mb-8 text-center">
+          <h1 className="bg-gradient-to-r from-slate-100 via-indigo-100 to-violet-200 bg-clip-text text-3xl font-semibold tracking-tight text-transparent md:text-4xl md:leading-tight">
+            Sai Asapu: The Career Suite
+          </h1>
+          <p className="mx-auto mt-4 max-w-2xl text-base font-light leading-relaxed text-slate-400 md:text-lg">
+            Interact with my Digital Twin or use the Career Architect tool to
+            optimize your own resume.
+          </p>
+        </header>
 
-        <div className="glass-twin-card relative flex min-h-[min(68vh,640px)] flex-col overflow-hidden rounded-3xl">
+        <div className="glass-twin-card relative flex h-[800px] flex-col overflow-hidden rounded-3xl">
           <div className="flex shrink-0 items-center justify-between border-b border-white/10 px-4 py-3 md:px-5">
             <div>
               <p className="text-xs font-medium uppercase tracking-[0.2em] text-indigo-300/90">
-                Digital Twin
+                Career Suite
               </p>
-              <p className="text-sm text-slate-400">Sai Asapu · HF Space</p>
+              <p className="text-sm text-slate-400">
+                Digital Twin · Career Architect
+              </p>
             </div>
             <div className="h-2 w-2 rounded-full bg-emerald-400/90 shadow-[0_0_12px_rgba(52,211,153,0.7)]" />
           </div>

@@ -113,6 +113,28 @@ body {
   animation: mesh-shift 32s ease-in-out infinite;
 }
 
+@keyframes logo-purple-blue-pulse {
+  0%,
+  100% {
+    border-color: rgba(129, 140, 248, 0.35);
+    box-shadow:
+      0 0 18px rgba(99, 102, 241, 0.45),
+      0 0 36px rgba(59, 130, 246, 0.22),
+      inset 0 0 12px rgba(99, 102, 241, 0.08);
+  }
+  50% {
+    border-color: rgba(167, 139, 250, 0.55);
+    box-shadow:
+      0 0 32px rgba(139, 92, 246, 0.55),
+      0 0 56px rgba(59, 130, 246, 0.35),
+      inset 0 0 16px rgba(129, 140, 248, 0.12);
+  }
+}
+
+.sa-logo-glow {
+  animation: logo-purple-blue-pulse 2.8s ease-in-out infinite;
+}
+
 .glass-twin-card {
   background: rgba(15, 23, 42, 0.45);
   backdrop-filter: blur(20px);
