@@ -1,67 +1,28 @@
-export const dynamic = "force-dynamic";
-import { prisma } from "@/lib/prisma";
-import { revalidatePath } from "next/cache";
+import Link from "next/link";
 
-// 1. Define the Action to save data
-async function saveMessage(formData: FormData) {
-  "use server"; // This runs on the server
-  const message = formData.get("message") as string;
-  
-  if (message) {
-    await prisma.guestbookEntry.create({
-      data: { message },
-    });
-    revalidatePath("/guestbook"); // Refresh the page
-  }
-}
+const MAILTO_CONTACT =
+  "mailto:saiasapu23@gmail.com?subject=Let's%20Connect!%20-%20Via%20Digital%20Twin";
 
-// 2. The Main Page
-export default async function Guestbook() {
-  // Fetch messages and sort by newest first
-  const entries = await prisma.guestbookEntry.findMany({
-    orderBy: { createdAt: "desc" },
-  });
-
+export default function Guestbook() {
   return (
-    <div className="min-h-screen bg-slate-950 text-white flex flex-col items-center p-10">
-      <h1 className="text-4xl font-bold mb-8 text-blue-400">Guestbook 🖊️</h1>
-
-      {/* The Form */}
-      <form action={saveMessage} className="flex gap-2 mb-10">
-        <input
-          name="message"
-          type="text"
-          placeholder="Sign my guestbook..."
-          className="px-4 py-2 rounded-lg text-black w-64"
-          required
-        />
-        <button
-          type="submit"
-          className="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg font-bold transition"
-        >
-          Sign
-        </button>
-      </form>
-
-      {/* The List of Messages */}
-      <div className="flex flex-col gap-4 w-full max-w-md">
-        {entries.map((entry) => (
-          <div key={entry.id} className="bg-slate-900 p-4 rounded-xl border border-slate-800">
-            <p className="text-lg">{entry.message}</p>
-            {/* THE FIX: We convert the date to a localized string here */}
-            <p className="text-xs text-slate-500 mt-2">
-              {entry.createdAt.toLocaleDateString()} at {entry.createdAt.toLocaleTimeString()}
-            </p>
-          </div>
-        ))}
-
-        {entries.length === 0 && (
-          <p className="text-slate-500 text-center">No messages yet. Be the first!</p>
-        )}
-      </div>
+    <div className="flex min-h-screen flex-col items-center bg-slate-950 p-10 text-white">
+      <h1 className="mb-4 text-4xl font-bold text-blue-400">Guestbook</h1>
+      <p className="mb-8 max-w-md text-center text-slate-400">
+        The guestbook is not available on static hosting. Reach out directly
+        instead.
+      </p>
+      <a
+        href={MAILTO_CONTACT}
+        className="rounded-lg bg-blue-600 px-6 py-3 font-bold transition hover:bg-blue-700"
+      >
+        Contact Sai
+      </a>
+      <Link
+        href="/"
+        className="mt-8 text-sm text-slate-500 transition hover:text-slate-300"
+      >
+        ← Back to Career Suite
+      </Link>
     </div>
   );
 }
-
-
-

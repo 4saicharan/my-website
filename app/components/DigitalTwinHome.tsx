@@ -3,6 +3,7 @@
 import Link from "next/link";
 import NeuralParticlesBackground from "./NeuralParticlesBackground";
 import CareerSuiteIframe from "./CareerSuiteIframe";
+import CareerSuiteWalkieTalkie from "./CareerSuiteWalkieTalkie";
 import { trackBookInterview, trackDownloadResume } from "@/lib/analytics";
 
 const CHATBOT_ORIGIN = "https://saiasapu-sai-asapu-ai.hf.space";
@@ -22,6 +23,7 @@ const MAILTO_CONTACT =
 export default function DigitalTwinHome() {
   return (
     <div className="digital-twin-mesh relative min-h-screen overflow-hidden text-white">
+      <CareerSuiteWalkieTalkie />
       <NeuralParticlesBackground />
       <nav className="relative z-20 flex items-center justify-between px-5 py-5 md:px-10">
         <Link

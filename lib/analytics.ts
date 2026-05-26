@@ -1,6 +1,5 @@
-/** Replace via `NEXT_PUBLIC_GA_MEASUREMENT_ID` in `.env.local` or Hostinger env vars. */
-export const GA_MEASUREMENT_ID =
-  process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "G-2PNTLSFN1P";
+/** GA4 Measurement ID — static-safe (client-side gtag only). */
+export const GA_MEASUREMENT_ID = "G-2PNTLSFN1P";
 
 export type CareerSuiteTab = "digital_twin" | "career_architect";
 
@@ -37,83 +36,40 @@ export function trackBookInterview() {
   });
 }
 
-export function trackCareerSuiteTabSwitch(tabName: CareerSuiteTab) {
-  sendEvent("career_suite_tab_switch", {
-    tab_name: tabName,
-  });
-}
-
-export function parseCareerSuiteTabFromMessage(
-  data: unknown
-): CareerSuiteTab | null {
-  if (typeof data === "string") {
-    return normalizeCareerSuiteTab(data);
-  }
-
+/** Handles `{ type: 'career_suite_tab', tab: 'digital_twin' | 'career_architect' }` postMessages. */
+export function trackCareerSuiteTabMessage(data: unknown): CareerSuiteTab | null {
   if (!data || typeof data !== "object") {
     return null;
   }
 
   const payload = data as Record<string, unknown>;
-  const candidates = [
-    payload.tab,
-    payload.tab_name,
-    payload.tabName,
-    payload.name,
-    payload.label,
-    payload.view,
-  ];
-
-  for (const candidate of candidates) {
-    if (typeof candidate === "string") {
-      const tab = normalizeCareerSuiteTab(candidate);
-      if (tab) return tab;
-    }
+  if (payload.type !== "career_suite_tab" || typeof payload.tab !== "string") {
+    return null;
   }
 
-  if (payload.type === "career_suite_tab" && typeof payload.tab === "string") {
-    return normalizeCareerSuiteTab(payload.tab);
+  const tab = normalizeCareerSuiteTab(payload.tab);
+  if (!tab) {
+    return null;
   }
 
-  if (
-    payload.event === "career_suite_tab_switch" &&
-    typeof payload.tab_name === "string"
-  ) {
-    return normalizeCareerSuiteTab(payload.tab_name);
+  if (tab === "career_architect") {
+    sendEvent("use_career_tool", { tab_name: tab });
+  } else {
+    sendEvent("use_portfolio_bot", { tab_name: tab });
   }
 
-  if (typeof payload.tabIndex === "number") {
-    return payload.tabIndex === 0 ? "digital_twin" : "career_architect";
-  }
-
-  return null;
+  return tab;
 }
 
 function normalizeCareerSuiteTab(raw: string): CareerSuiteTab | null {
   const normalized = raw.trim().toLowerCase().replace(/[\s-]+/g, "_");
 
-  if (
-    normalized === "digital_twin" ||
-    normalized === "digitaltwin" ||
-    normalized === "twin"
-  ) {
+  if (normalized === "digital_twin") {
     return "digital_twin";
   }
 
-  if (
-    normalized === "career_architect" ||
-    normalized === "careerarchitect" ||
-    normalized === "architect"
-  ) {
+  if (normalized === "career_architect") {
     return "career_architect";
-  }
-
-  if (normalized.includes("architect")) {
-    return "career_architect";
-  }
-
-  if (normalized.includes("twin")) {
-    return "digital_twin";
   }
 
   return null;
