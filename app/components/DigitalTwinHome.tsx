@@ -50,14 +50,23 @@ export default function DigitalTwinHome() {
           </p>
         </header>
 
-        <div className="glass-twin-card relative flex h-[800px] flex-col overflow-hidden rounded-3xl">
+        <div className="glass-twin-card relative flex h-[850px] flex-col overflow-hidden rounded-3xl">
           <div className="flex shrink-0 items-center justify-between border-b border-white/10 px-4 py-3 md:px-5">
             <div>
               <p className="text-xs font-medium uppercase tracking-[0.2em] text-indigo-300/90">
                 Career Suite
               </p>
-              <p className="text-sm text-slate-400">
-                Digital Twin · Career Architect
+              <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-slate-400">
+                <span>Digital Twin</span>
+                <span className="text-slate-600" aria-hidden>
+                  ·
+                </span>
+                <span className="inline-flex items-center gap-1.5">
+                  Career Architect
+                  <span className="rounded-full border border-violet-400/35 bg-violet-500/15 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-violet-200 shadow-[0_0_12px_rgba(139,92,246,0.25)]">
+                    Beta
+                  </span>
+                </span>
               </p>
             </div>
             <div className="h-2 w-2 rounded-full bg-emerald-400/90 shadow-[0_0_12px_rgba(52,211,153,0.7)]" />
