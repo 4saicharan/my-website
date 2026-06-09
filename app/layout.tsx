@@ -3,7 +3,10 @@ import { Inter } from "next/font/google";
 import GoogleAnalytics from "./components/GoogleAnalytics";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
 
 const siteDescription =
   "Explore the interactive AI Digital Twin of Sai Asapu, a Senior Data Engineer with 7+ years of experience. Interview my AI assistant 24/7 and download my resume.";
@@ -36,7 +39,7 @@ export default function RootLayout({
       <head>
         <GoogleAnalytics />
       </head>
-      <body className={`${inter.className} min-h-screen bg-[#030303] antialiased`}>
+      <body className={`${inter.variable} ${inter.className} min-h-screen bg-background font-sans`}>
         {children}
       </body>
     </html>
