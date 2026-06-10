@@ -8,22 +8,23 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+const siteTitle = "Sai Charan Asapu — Senior Data Engineer | Chicago, IL";
 const siteDescription =
-  "Explore the interactive AI Digital Twin of Sai Asapu, a Senior Data Engineer with 7+ years of experience. Interview my AI assistant 24/7 and download my resume.";
+  "Senior Data Engineer with 7 years across healthcare, finance, and enterprise cloud. Snowflake, PySpark, Azure, Kafka, Airflow. Open to contract roles — Chicagoland and remote.";
 
 const ogImage = "https://saiasapu.com/thumbnail.png";
 
 export const metadata: Metadata = {
-  title: "Sai Asapu — Digital Twin Portfolio",
+  title: siteTitle,
   description: siteDescription,
   openGraph: {
-    title: "Sai Asapu — Digital Twin Portfolio",
+    title: siteTitle,
     description: siteDescription,
     images: [{ url: ogImage }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sai Asapu — Digital Twin Portfolio",
+    title: siteTitle,
     description: siteDescription,
     images: [ogImage],
   },
